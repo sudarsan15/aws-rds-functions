@@ -1,8 +1,8 @@
 /*
 
 Author Name  : Sudarsan PS 
-Description  : This is for MYSQL functionalites for AWS RDS
-Date         : 18 April 2018
+website      : www.sudarsanps.com
+Description  : This is the route for creating and dropping the table using AWS RDS
 */
 
 var express = require('express');
@@ -11,7 +11,11 @@ var connection = null;
 
 require('../shared/shared');
 
-// GET and POST method of create table
+/*
+
+  Create Section - This section performs creation of table named customer
+
+*/
 router.route('/')
 	.get(function(req,res,next){
 		res.render('table/create', { title: 'Express', success  : req.flash('success',''),error: req.flash('error',''), csrfToken: req.csrfToken(), });
@@ -46,7 +50,12 @@ router.route('/')
 		}
 	});
 
-// GET and POST of drop table
+/*
+
+  Drop Section - This section performs deleting table named customer
+
+*/
+
 router.route('/drop')
 	.get(function(req,res,next){
 		res.render('table/drop', { title: 'Express', success  : req.flash('success',''),error: req.flash('error',''), csrfToken: req.csrfToken(), });

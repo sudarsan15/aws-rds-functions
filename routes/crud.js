@@ -234,7 +234,7 @@ router.route('/update')
 	});
 
 /*
-  Update Action  - 
+  Update Action  - Once the user submits for updation, this section is excuted
 
 */
 router.route('/updateaction')
