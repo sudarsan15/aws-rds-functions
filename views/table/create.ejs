@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>RDS- Create table </title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">AWS RDS</a>
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <!-- <li class="active"><a href="#">Link <span class="sr-only">(current)</span></a></li> -->
+          <!-- <li><a href="#">Link</a></li> -->
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Table <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/table/">Create</a></li>
+              <li><a href="/table/drop">Drop</a></li>
+            </ul>
+          </li>
+
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">CRUD <span class="caret"></span></a>
+            <ul class="dropdown-menu">
+              <li><a href="/crud/">View</a></li>
+              <li><a href="/crud/insert">Insert</a></li>
+            </ul>
+          </li>
+
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
+
+<div class="container">
+  <h2>Create Table</h2><hr/>
+    <div class="row">
+      <div class="col-md-12">
+          <% if (success !='') { %>
+
+            <div class="alert alert-success fade in">
+                  <%= success %>
+            </div>
+          <% } %>
+          <% if (error !='') { %>
+              <div class="alert alert-danger fade in">
+                 <%= error %>
+              </div>
+        <% } %>
+      </div>   
+    </div>  
+    <div class="row">
+      <div class="table-responsive">
+          <table class="table table-bordered">
+            <tr>
+              <th>Table Name</th>
+              <th >customers</th>
+              <th></th>
+            </tr>  
+            <tr>
+              <th>Field Name </th>
+              <th>Type</th>
+              <th>Key </th> 
+            </tr>
+            <tr>
+              <td>id</td>
+              <td>INT</td>
+              <td>Primary Key</td>
+            </tr>  
+            <tr>
+              <td>name</td>
+              <td>VARCHAR</td>
+              <td>NA</td>
+            </tr>  
+            <tr>
+              <td>address</td>
+              <td>VARCHAR</td>
+              <td>NA</td>
+            </tr>  
+          </table>
+      </div> 
+    </div> 
+    <div class="row">
+      <label>SQL Query used</label>
+      <pre>CREATE TABLE customers (id INT primary key AUTO_INCREMENT,  name VARCHAR(255), address VARCHAR(255));</pre>
+     </div> 
+    <div class="row">  
+      <form method="post">
+        <input type="hidden" name="_csrf" value="<%= csrfToken %>">
+        <input type="submit" name="createTable" id="createTable" value="Create Table" class="btn btn-primary">
+      </form>
+    </div>  
+  </div>
+
+</body>
+</html>
